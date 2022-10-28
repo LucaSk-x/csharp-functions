@@ -15,45 +15,45 @@ Console.WriteLine("Hello, World!");
 
 {
 
-    Console.WriteLine("________________ Array dinamico ______________");
+//    Console.WriteLine("________________ Array dinamico ______________");
 
-    Console.WriteLine("Quanti elementi vuoi nel tuo array?");
-    int elementiArray = Convert.ToInt16(Console.ReadLine());
+//    Console.WriteLine("Quanti elementi vuoi nel tuo array?");
+//    int elementiArray = Convert.ToInt16(Console.ReadLine());
 
-    int[] arrayNuovo = (creaArray(elementiArray));
+//    int[] arrayNuovo = (creaArray(elementiArray));
 
-    StampaArray(arrayNuovo);
-    StampaArray(ElevaArrayAlQuadrato(arrayNuovo));
-    Console.WriteLine(SommaElementiArray(arrayNuovo));
-    Console.WriteLine(SommaElementiArray(ElevaArrayAlQuadrato(arrayNuovo)));
-
-
-
-
-    int[] creaArray(int elementiArray)
-    {
-        int[] arrayUtente = new int[elementiArray];
-
-        Console.WriteLine("Inseririsci" + " " + arrayUtente.Length + " " + "numeri");
-        for (int i = 0; i < elementiArray; i++)
-        {
-            int inputNumero = Convert.ToInt16(Console.ReadLine());
-            arrayUtente[i] = inputNumero;
-        }
-        return arrayUtente;
-    }
+//    StampaArray(arrayNuovo);
+//    StampaArray(ElevaArrayAlQuadrato(arrayNuovo));
+//    Console.WriteLine(SommaElementiArray(arrayNuovo));
+//    Console.WriteLine(SommaElementiArray(ElevaArrayAlQuadrato(arrayNuovo)));
 
 
 
-    Console.WriteLine("______________ Array statitico ______________");
+
+//    int[] creaArray(int elementiArray)
+//    {
+//        int[] arrayUtente = new int[elementiArray];
+
+//        Console.WriteLine("Inseririsci" + " " + arrayUtente.Length + " " + "numeri");
+//        for (int i = 0; i < elementiArray; i++)
+//        {
+//            int inputNumero = Convert.ToInt16(Console.ReadLine());
+//            arrayUtente[i] = inputNumero;
+//        }
+//        return arrayUtente;
+//    }
 
 
-    int[] numeri = {2, 6, 7, 5, 3, 9};
 
-    StampaArray(numeri);
-    StampaArray(ElevaArrayAlQuadrato(numeri));
-    Console.WriteLine(SommaElementiArray(numeri));
-    Console.WriteLine(SommaElementiArray(ElevaArrayAlQuadrato(numeri)));
+//    Console.WriteLine("______________ Array statitico ______________");
+
+
+//    int[] numeri = {2, 6, 7, 5, 3, 9};
+
+//    StampaArray(numeri);
+//    StampaArray(ElevaArrayAlQuadrato(numeri));
+//    Console.WriteLine(SommaElementiArray(numeri));
+//    Console.WriteLine(SommaElementiArray(ElevaArrayAlQuadrato(numeri)));
 
 
     //Prima funzione stampa qualasisi array
@@ -101,4 +101,80 @@ Console.WriteLine("Hello, World!");
         }
             return somma;
     }
+
+
+
+
+    //Calcolo fattoriale di un numero N
+    Console.WriteLine("Inserisci il tuo numero per calcolarne il fattoriale");
+    int fattorialeInput = Convert.ToInt16(Console.ReadLine());
+
+    StampaArray(fattorialeArray(fattorialeInput));
+
+
+    int[] fattorialeArray(int Input)
+    {
+        int numero = 1;
+        int[] arrayUtente = new int[Input];
+
+        for (int i = 0; i < Input; i++)
+        {
+            numero = numero * (i + 1);
+            arrayUtente[i] = numero;
+        }
+        return arrayUtente;
+    }
+
+
+
+    //Calcolo di N numeri della seria di fibonacci
+    Console.WriteLine("Inserisci il tuo numero per la serie di fibonacci");
+    int fibonacciInput = Convert.ToInt16(Console.ReadLine());
+
+    StampaArray(fibonacciArray(fibonacciInput));
+
+    int[] fibonacciArray(int Input)
+    {
+        int[] arrayUtente = new int[Input + 1];
+
+        for (int i = 0; i <= Input; i++)
+        {
+            if (i == 0)
+            {
+                arrayUtente[i] = 0;
+            } 
+            else if (i == 1)
+            {
+                arrayUtente[i] = 1;
+            }
+            else 
+            {
+                int numero = arrayUtente[i - 1] + arrayUtente[(i - 2)];
+                arrayUtente[i] = numero;
+            }
+
+        }
+        return arrayUtente;
+    }
 }
+
+
+
+Console.WriteLine("Inserisci il tuo numero per calcolarne il fattoriale");
+int fattorialeInputRicorsivo = Convert.ToInt16(Console.ReadLine());
+
+Console.WriteLine(fattorialeArrayRicorsiva(fattorialeInputRicorsivo));
+
+int fattorialeArrayRicorsiva(int FaNumeroRi)
+{
+    if (FaNumeroRi == 1)
+        return 1;
+    else
+        return FaNumeroRi * fattorialeArrayRicorsiva(FaNumeroRi - 1);
+}
+
+
+
+
+
+
